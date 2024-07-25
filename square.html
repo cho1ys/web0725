@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sqaure</title>
+    <script>
+        // 정사각형을 정의하는 클래스
+        class Square {
+            // 생성자: 길이를 받아서 인스턴스를 초기화합니다.
+            constructor(length) {
+                this.length = length; // 정사각형의 변 길이
+            }
+
+            // getPeri 메서드: 정사각형의 둘레를 계산합니다.
+            getPeri() {
+                return 4 * this.length; // 변의 길이에 4를 곱하여 둘레를 계산
+            }
+
+            // getArea 메서드: 정사각형의 넓이를 계산합니다.
+            getArea() {
+                return this.length * this.length; // 변의 길이에 자기 자신을 곱하여 넓이를 계산
+            }
+        }
+
+        // Square 클래스의 인스턴스를 생성합니다.
+        const square = new Square(12.5); // 변의 길이가 12.5인 정사각형 생성
+
+        // 정사각형의 둘레를 콘솔에 출력합니다.
+        console.log(`정사각형의 둘레: ${square.getPeri()}`); // getPeri 메서드를 호출하여 둘레 출력
+
+        // 정사각형의 넓이를 콘솔에 출력합니다.
+        console.log(`정사각형의 넓이: ${square.getArea()}`); // getArea 메서드를 호출하여 넓이 출력
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class_function</title>
+    <script>
+        // 학생 정보를 담고 있는 배열 생성
+        const students = [];
+
+        // 학생 객체를 배열에 추가
+        students.push({이름: '구름', 국어: 87, 영어: 98, 수학: 88, 과학: 90});
+        students.push({이름: '별이', 국어: 92, 영어: 98, 수학: 96, 과학: 88});
+        students.push({이름: '겨울', 국어: 76, 영어: 96, 수학: 94, 과학: 86});
+        students.push({이름: '바다', 국어: 98, 영어: 52, 수학: 98, 과학: 92});
+
+        // 학생의 총점을 계산하는 함수
+        function getSum(student) {
+            // 학생 객체의 국어, 영어, 수학, 과학 점수를 모두 더함
+            return student.국어 + student.영어 + student.수학 + student.과학;
+        }
+
+        // 학생의 평균 점수를 계산하는 함수
+        function getAvg(student) {
+            // 총점을 4로 나누어 평균 점수를 계산함
+            return getSum(student) / 4;
+        }
+
+        // 결과 문자열 초기화
+        let output = '이름\t총점\t평균\n';
+
+        // 학생 배열을 순회하며 각 학생의 정보와 계산된 총점, 평균 점수를 문자열에 추가
+        for (const s of students) {
+            output += `${s.이름}\t${getSum(s)}점\t${getAvg(s)}점\n`;
+        }
+
+        // 최종 결과 문자열을 콘솔에 출력
+        console.log(output);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
