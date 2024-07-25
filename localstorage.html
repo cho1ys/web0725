@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // 페이지가 로드되면 실행되는 함수
+
+            // HTML 요소 선택
+            const p = document.querySelector('p'); // 결과를 표시할 <p> 요소
+            const input = document.querySelector('input'); // 사용자 입력을 받을 <input> 요소
+            const button = document.querySelector('button'); // 입력을 지울 <button> 요소
+
+            // localStorage에서 저장된 값을 가져오기
+            const savedValue = localStorage.getItem('input');
+            if (savedValue) {
+                // 저장된 값이 있으면 input 필드에 값을 설정하고 <p> 요소에 출력
+                input.value = savedValue;
+                p.textContent = `이전 실행의 마지막 값: ${savedValue}`;
+            }
+
+            // input 필드에 키를 입력할 때마다 발생하는 이벤트 리스너
+            input.addEventListener('keyup', (event) => {
+                const value = event.currentTarget.value; // 현재 input 필드의 값을 가져옴
+                localStorage.setItem('input', value); // 값을 localStorage에 저장
+            });
+
+            // 버튼을 클릭할 때 발생하는 이벤트 리스너
+            button.addEventListener('click', (event) => {
+                localStorage.clear(); // localStorage를 초기화
+                input.value = ''; // input 필드를 빈 문자열로 설정
+                p.textContent = ''; // <p> 요소의 내용을 빈 문자열로 설정
+            });
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+    <button>지우기</button>
+    <input type="text">
+</body>
+</html>
